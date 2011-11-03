@@ -46,3 +46,6 @@ gem "factory_girl_rails", :group => [:development, :test]
 gem "webrat", :group => :test
 gem "ffaker", :group => :test
 gem "autotest", :group => :test
+
+gem 'activeadmin'
+gem "meta_search",    '>= 1.1.0.pre'

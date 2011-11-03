@@ -1,9 +1,16 @@
 DishcoveryWebapp::Application.routes.draw do
+  
+  ActiveAdmin.routes(self)
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+
   root :to => "home#index"
 
   get "home/index"
 
   devise_for :users
+  
+  resources :places, :only => ["index","show"]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
