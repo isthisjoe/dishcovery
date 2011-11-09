@@ -5,6 +5,9 @@ ActiveAdmin.register Grading do
     column "Dish" do |grading|
       grading.dish.dish_type.name
     end
+    column "Place" do |grading| 
+      grading.dish.place.name
+    end
     column "User" do |grading|
       grading.user.username
     end
@@ -18,6 +21,7 @@ ActiveAdmin.register Grading do
   show do |grading|
     attributes_table do 
       row("Dish") { grading.dish.dish_type.name }
+      row("Place") { grading.dish.place.name }
       row :user
       row("Grade") { grading.grade.text }
     end
@@ -26,7 +30,7 @@ ActiveAdmin.register Grading do
   form do |f|
     f.inputs "Gradings" do
       f.input :dish, :as => :select, :collection => Hash[*Dish.all.collect { |v|
-          [v.dish_type.name,v.id] }.flatten]
+          ["%s (%s)" % [v.dish_type.name,v.place.name], v.id] }.flatten]
       f.input :user
       f.input :grade, :as => :select, :collection => Hash[*Grade.all.collect { |v|
           [v.text,v.id] }.flatten]

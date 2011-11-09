@@ -1,0 +1,16 @@
+<% title "Dish" %>
+
+<p>
+  <strong>Dish Type:</strong>
+  <%= @dish.dish_type_id %>
+</p>
+<p>
+  <strong>Place:</strong>
+  <%= @dish.place_id %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_dish_path(@dish) %> |
+  <%= link_to "Destroy", @dish, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", dishes_path %>
+</p>

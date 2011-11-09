@@ -10,8 +10,12 @@ DishcoveryWebapp::Application.routes.draw do
 
   devise_for :users
   
-  resources :places, :only => ["index","show"]
-
+  resources :places, :only => ["index","show","create","update"]
+  resources :dishes
+  resources :dish_types do
+    resources :dishes
+  end
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

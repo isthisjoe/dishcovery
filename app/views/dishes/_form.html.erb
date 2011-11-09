@@ -1,0 +1,12 @@
+<%= form_for @dish do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :dish_type_id %><br />
+    <%= f.number_field :dish_type_id %>
+  </p>
+  <p>
+    <%= f.label :place_id %><br />
+    <%= f.number_field :place_id %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>

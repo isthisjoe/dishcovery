@@ -1,0 +1,19 @@
+<% title "Dish Types" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <% for dish_type in @dish_types %>
+    <tr>
+      <td><%= dish_type.name %></td>
+      <td><%= dish_type.description %></td>
+      <td><%= link_to "Show", dish_type %></td>
+      <td><%= link_to "Edit", edit_dish_type_path(dish_type) %></td>
+      <td><%= link_to "Destroy", dish_type, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Dish Type", new_dish_type_path %></p>
