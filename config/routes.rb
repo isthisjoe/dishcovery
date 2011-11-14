@@ -7,8 +7,19 @@ DishcoveryWebapp::Application.routes.draw do
   root :to => "home#index"
 
   get "home/index"
+  
+  # devise_for :users
+  
+  devise_for :users, :controllers => { :sessions => "api/v1/sessions" }
+  devise_scope :user do
+    namespace :api do
+      namespace :v1 do
+        resources :sessions, :only => [:create, :destroy]
+      end
+    end
+  end
 
-  devise_for :users
+  resources :users
   
   resources :places, :only => ["index","show","create","update"]
   resources :dishes
