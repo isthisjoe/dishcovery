@@ -17,6 +17,10 @@ class Api::V1::GradingsController < ApplicationController
     @grading = Grading.new(params[:grading])
     if @grading.save
       # redirect_to [:api, :v1, @grading], :notice => "Successfully created grading."
+      
+      # adding a grading to a dish, then we must recalculate the average grade for this dish.
+      @grading.dish.calculate_average_grade
+      
       respond_with(:api, :v1, @grading)
     else
       # render :action => 'new'

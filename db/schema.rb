@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111102231541) do
+ActiveRecord::Schema.define(:version => 20111115044106) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(:version => 20111102231541) do
     t.integer  "place_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "average_grade_id"
   end
 
   add_index "dishes", ["dish_type_id"], :name => "index_dishes_on_dish_type_id"

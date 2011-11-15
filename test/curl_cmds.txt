@@ -1,0 +1,12 @@
+
+curl -v -H "Accept: application/json" -H "Content-Type: application/json" -X POST \
+http://localhost:3000/api/v1/gradings.json \
+-d '{"grading":{"user_id":"1","grade_id":"2","dish_id":"3"}}'
+
+
+curl -v -H "Accept: application/json" -H "Content-Type: application/json" \
+http://localhost:3000/api/v1/grades.json
+
+
+curl -v -H "Accept: application/json" -H "Content-Type: application/json" \
+http://localhost:3000/api/v1/dishes/1.json
