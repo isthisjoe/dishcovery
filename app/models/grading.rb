@@ -6,4 +6,11 @@ class Grading < ActiveRecord::Base
   accepts_nested_attributes_for :dish
   accepts_nested_attributes_for :grade
   
+  def serializable_hash(options = {}) 
+    options = { 
+      :include => [:user, :dish, :grade],
+      :except => [:created_at, :updated_at]
+    }.merge(options ||= {})
+    super options
+  end
 end

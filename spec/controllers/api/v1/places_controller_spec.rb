@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe PlacesController do
+describe Api::V1::PlacesController do
 
   describe "GET 'index'" do
     it "returns http success" do

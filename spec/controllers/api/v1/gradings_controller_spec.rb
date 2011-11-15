@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
-describe DishesController do
+describe Api::V1::GradingsController do
   fixtures :all
   render_views
 
@@ -10,7 +10,7 @@ describe DishesController do
   end
 
   it "show action should render show template" do
-    get :show, :id => Dish.first
+    get :show, :id => Grading.first
     response.should render_template(:show)
   end
 
@@ -20,38 +20,38 @@ describe DishesController do
   end
 
   it "create action should render new template when model is invalid" do
-    Dish.any_instance.stubs(:valid?).returns(false)
+    Grading.any_instance.stubs(:valid?).returns(false)
     post :create
     response.should render_template(:new)
   end
 
   it "create action should redirect when model is valid" do
-    Dish.any_instance.stubs(:valid?).returns(true)
+    Grading.any_instance.stubs(:valid?).returns(true)
     post :create
-    response.should redirect_to(dish_url(assigns[:dish]))
+    response.should redirect_to(api_v1_grading_url(assigns[:grading]))
   end
 
   it "edit action should render edit template" do
-    get :edit, :id => Dish.first
+    get :edit, :id => Grading.first
     response.should render_template(:edit)
   end
 
   it "update action should render edit template when model is invalid" do
-    Dish.any_instance.stubs(:valid?).returns(false)
-    put :update, :id => Dish.first
+    Grading.any_instance.stubs(:valid?).returns(false)
+    put :update, :id => Grading.first
     response.should render_template(:edit)
   end
 
   it "update action should redirect when model is valid" do
-    Dish.any_instance.stubs(:valid?).returns(true)
-    put :update, :id => Dish.first
-    response.should redirect_to(dish_url(assigns[:dish]))
+    Grading.any_instance.stubs(:valid?).returns(true)
+    put :update, :id => Grading.first
+    response.should redirect_to(api_v1_grading_url(assigns[:grading]))
   end
 
   it "destroy action should destroy model and redirect to index action" do
-    dish = Dish.first
-    delete :destroy, :id => dish
-    response.should redirect_to(dishes_url)
-    Dish.exists?(dish.id).should be_false
+    grading = Grading.first
+    delete :destroy, :id => grading
+    response.should redirect_to(api_v1_gradings_url)
+    Grading.exists?(grading.id).should be_false
   end
 end

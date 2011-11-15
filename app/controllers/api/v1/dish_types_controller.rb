@@ -1,4 +1,4 @@
-class DishTypesController < ApplicationController
+class Api::V1::DishTypesController < ApplicationController
   respond_to :html,:json
   
   def index

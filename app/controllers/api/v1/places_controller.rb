@@ -1,4 +1,4 @@
-class PlacesController < ApplicationController
+class Api::V1::PlacesController < ApplicationController
   respond_to :json
   
   def index

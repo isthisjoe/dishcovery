@@ -1,0 +1,12 @@
+<% title "Api/V1/Grade" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @grade.name %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_api_v1_grade_path(@grade) %> |
+  <%= link_to "Destroy", [:api, :v1, @grade], :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", api_v1_grades_path %>
+</p>

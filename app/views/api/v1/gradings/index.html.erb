@@ -1,0 +1,17 @@
+<% title "Api/V1/Gradings" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+  <% for grading in @gradings %>
+    <tr>
+      <td><%= grading.name %></td>
+      <td><%= link_to "Show", [:api, :v1, grading] %></td>
+      <td><%= link_to "Edit", edit_api_v1_grading_path(grading) %></td>
+      <td><%= link_to "Destroy", [:api, :v1, grading], :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Api/V1/Grading", new_api_v1_grading_path %></p>

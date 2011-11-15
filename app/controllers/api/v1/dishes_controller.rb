@@ -1,4 +1,4 @@
-class DishesController < ApplicationController
+class Api::V1::DishesController < ApplicationController
   respond_to :html,:json
   
   def index

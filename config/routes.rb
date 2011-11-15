@@ -1,5 +1,5 @@
 DishcoveryWebapp::Application.routes.draw do
-  
+
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
@@ -8,23 +8,34 @@ DishcoveryWebapp::Application.routes.draw do
 
   get "home/index"
   
-  # devise_for :users
+  devise_for :users
   
-  devise_for :users, :controllers => { :sessions => "api/v1/sessions" }
-  devise_scope :user do
-    namespace :api do
-      namespace :v1 do
-        resources :sessions, :only => [:create, :destroy]
-      end
-    end
-  end
+  # devise_for :users, :controllers => { :sessions => "api/v1/sessions" }
+  # devise_scope :user do
+  #   namespace :api do
+  #     namespace :v1 do
+  #       resources :sessions, :only => [:create, :destroy]
+  #     end
+  #   end
+  # end
 
   resources :users
+  # resources :places, :only => ["index","show","create","update"]
+  # resources :dishes
+  # resources :dish_types do
+  #   resources :dishes
+  # end
   
-  resources :places, :only => ["index","show","create","update"]
-  resources :dishes
-  resources :dish_types do
-    resources :dishes
+  namespace :api do
+    namespace :v1 do
+      resources :places, :only => ["index","show","create","update"]
+      resources :dishes
+      resources :dish_types do
+        resources :dishes
+      end
+      resources :grades, :only => ["index", "show"]
+      resources :gradings, :only => ["index", "show", "create"]
+    end
   end
   
   # The priority is based upon order of creation:
