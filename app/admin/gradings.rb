@@ -9,7 +9,7 @@ ActiveAdmin.register Grading do
       grading.dish.place.name
     end
     column "User" do |grading|
-      grading.user.username
+      grading.user.email
     end
     column "Grade" do |grading|
       grading.grade.text

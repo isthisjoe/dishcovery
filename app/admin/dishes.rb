@@ -9,6 +9,10 @@ ActiveAdmin.register Dish do
       dish.place.name
     end
     
+    column "Average Grade" do |dish|
+      dish.average_grade.text unless dish.average_grade.nil?
+    end
+    
     default_actions
   end
 end
